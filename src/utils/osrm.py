@@ -7,7 +7,8 @@ DEFAULT_PORT = "5000"
 
 
 def format_request(service, locs, ip=DEFAULT_IP, port=DEFAULT_PORT):
-    req = "http://" + ip + ":" + port + "/"
+    port_string = ":" + port if port else ""
+    req = "http://" + ip + port_string + "/"
     req += service + "/v1/car/"
     for loc in locs:
         req += str(loc[0]) + "," + str(loc[1]) + ";"
