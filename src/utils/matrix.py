@@ -102,8 +102,8 @@ def add_matrices(data, routing):
                     routing["profiles"][p]["host"],
                     routing["profiles"][p]["port"],
                 )
-        except Exception:
-            raise ValueError("Failed to connect to " + routing["engine"])
+        except Exception as e:
+            raise ValueError("Failed to connect to " + routing["engine"] + ". " + repr(e))
 
         # Round all durations to the nearest integer (same behavior as
         # in osrm_routed_wrapper.cpp and ors_wrapper.cpp)
