@@ -23,7 +23,10 @@ def route(locs, extra_args="", ip=DEFAULT_IP, port=DEFAULT_PORT):
     req += "?alternatives=false&steps=false&overview=full&continue_straight=false"
     req += extra_args
 
-    return requests.get(req).json()
+    res = requests.get(req)
+    res.raise_for_status()
+
+    return res.json()
 
 
 def table(locs, ip=DEFAULT_IP, port=DEFAULT_PORT):
@@ -31,4 +34,7 @@ def table(locs, ip=DEFAULT_IP, port=DEFAULT_PORT):
 
     req += "?annotations=duration,distance"
 
-    return requests.get(req).json()
+    res = requests.get(req)
+    res.raise_for_status()
+
+    return res.json()
