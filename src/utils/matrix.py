@@ -93,7 +93,7 @@ def add_matrices(data, routing):
         try:
             if routing["engine"] == "osrm":
                 matrices = osrm_table(
-                    locs, routing["profiles"][p]["host"], routing["profiles"][p]["port"]
+                    locs, routing["profiles"][p]["host"], routing["profiles"][p]["port"], p
                 )
             if routing["engine"] == "ors":
                 matrices = ors_table(
