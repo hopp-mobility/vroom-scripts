@@ -197,6 +197,9 @@ def solve_asap(problem):
     if init_solution["code"] != 0:
         raise OSError(init_solution["code"], init_solution["error"])
 
+    if init_solution["summary"]["unassigned"] != 0:
+        return init_solution
+
     solutions = dichotomy(problem["instance"], problem["cl_args"], init_solution)
 
     if problem["pareto_front_more_solution"]:
